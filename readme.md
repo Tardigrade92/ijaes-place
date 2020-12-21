@@ -26,4 +26,4 @@ when start over
 1 npm init
 3 npm i node-sass {then nede modules and lock json will display}
 
-{if problems with npm running sass or any depedents then try  npm eject, npm run and then npm run node sass go through all the normal protocals in uninstall sass if this doesnt work}
+{if problems with npm running sass or any depedents then try npm eject, npm run and then npm run node sass go through all the normal protocals in uninstall sass if this doesnt work}
