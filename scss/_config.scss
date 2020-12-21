@@ -1,12 +1,12 @@
-$primaryColor1: #444; 
+$primaryColor1: #444;
 $primaryColor2: rgba(255, 251, 251, 0.856);
-$primaryColor3: #eece1a;  
+$primaryColor3: #eece1a;
 
 $show-home-image: true;
 
-$home-image: url(img/images/background-coffee.jpg);
-$portrait: url(img/images/portrait.jpg);
-$portrait_small: url(img/images/portrait_small.jpg);
+$home-image: url(../img/images/background-coffee.jpg);
+$portrait: url(../img/images/portrait.jpg);
+$portrait_small: url(../img/images/portrait_small.jpg);
 $background-opacity: 0.9;
 
 @mixin easeOut {

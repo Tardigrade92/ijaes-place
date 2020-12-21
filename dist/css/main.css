@@ -63,7 +63,7 @@
     .menu-branding .portrait {
       width: 250px;
       height: 250px;
-      background: url(img/images/portrait.jpg);
+      background: url(../img/images/portrait.jpg);
       border-radius: 50%;
       border: solid #eece1a 5px; }
   .menu .nav-item {
@@ -123,7 +123,7 @@ body {
   line-height: 1.9; }
   body#bg-img {
     background-attachment: fixed;
-    background: url(img/images/background-coffee.jpg);
+    background: url(../img/images/background-coffee.jpg);
     background-size: cover; }
     body#bg-img:after {
       content: "";
@@ -330,7 +330,7 @@ main {
     height: 25vh;
     transform: translate3d(100%, 0, 0); }
     .menu-branding .portrait {
-      background: url(img/images/portrait_small.jpg);
+      background: url(../img/images/portrait_small.jpg);
       width: 150px;
       height: 150px; }
   .about-info {
