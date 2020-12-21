@@ -1,0 +1,249 @@
+@import "config";
+@import "menu";
+
+// you use the add on way if using extention but this is manual conpiler so you write it like this instead of this @import './config'
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include background;
+  background: $primaryColor1;
+  color: set-text-color($primaryColor1);
+  height: 100%;
+  margin: 0%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.9;
+}
+
+// headings
+h1,
+h2,
+h3 {
+  margin: 0%;
+  font-weight: 550;
+  // fontweight changes the thickness of your text so to make !!! just see
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primaryColor1, 2), 0.5);
+    text-shadow: 1px 1px 1px black;
+    /* this will lighten the set color by .5 so in this case it
+ will lighten the primary var color  the 2 will lighten it in relation to the var color and the 
+ second value will change the opacity to 0.5 but this must have a second perathesis 
+ wrapper along with the rgba at the fron of the wrapper shown above
+ if you dont ajust the opacity you wont be able to see the background color*/
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $primaryColor2;
+}
+
+header {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+
+  /* z inex will move the emelment closer to the front of the stack of elements so -1 will be behind 
+    and 10will be obviously closer to you*/
+  // this will positoion the burgwer tab to be fixed so even when scroll it will remain at the top of the page
+}
+
+.text-secondary {
+  color: $primaryColor3;
+}
+
+main {
+  padding: 4rem;
+  // height: 100%;
+  min-height: calc(100vh - 60px);
+  /*so above i have use the calc css because i would like my footer to be sticky even if i
+   remove content so the footer height is set to 60px and you just remove the 60px from the
+   vh reading from the element before the footer but not i wouldnt be able to do it to an element that is above the main */
+
+  /*this will set the padding of everything within the main */
+
+  .icons {
+    margin-top: 1rem;
+    // this will add margin space to the top of the wholw dive
+    a {
+      padding: 0.8rem;
+      //this will add space bettwen the icons
+
+      &:hover {
+        &:nth-child(1) {
+          color: rgba(14, 113, 243, 0.836);
+        }
+        &:nth-child(2) {
+          color: rgb(170, 8, 170);
+        }
+        &:nth-child(3) {
+          color: rgba(9, 76, 163, 0.836);
+        }
+        &:nth-child(4) {
+          color: rgba(14, 44, 211, 0.836);
+        }
+        &:nth-child(5) {
+          color: rgba(9, 76, 163, 0.836);
+        }
+
+        @include easeOut();
+        /*use all if you want to make many
+         trasition styles and color if its just for color you will find the code above in the mixin*/
+      }
+    }
+  }
+
+  &#home {
+    display: hidden;
+    //display hidden because there will be no sroll bar in the project
+    h1 {
+      margin-top: 20vh;
+      // this will add a margin to the top of the main heading
+    }
+  }
+}
+
+.about-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  grid-gap: 30px;
+  grid-template-areas:
+    "bio-image bio bio"
+    "job-1 job-2 job-3";
+
+  .bio-image {
+    grid-area: bio-image;
+    border-radius: 50%;
+    margin: auto;
+    border: solid 2px $primaryColor3;
+  }
+  .bio {
+    grid-area: bio;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .job-1 {
+    grid-area: job-1;
+    transition: transform 0.2s;
+    @include easeOut;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .job-2 {
+    grid-area: job-2;
+    transition: transform 0.2s;
+    @include easeOut;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .job-3 {
+    grid-area: job-3;
+    transition: transform 0.2s;
+    @include easeOut;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .job {
+    background: lighten($primaryColor1, 5);
+    padding: 1.5rem;
+    border-bottom: solid 5px $primaryColor3;
+    border-left: solid 0.1px lighten($primaryColor1, 10);
+    border-right: solid 0.1px lighten($primaryColor1, 10);
+    border-top: solid 0.1px lighten($primaryColor1, 10);
+  }
+}
+// work workflow begins here
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.7rem;
+
+  img {
+    width: 100%;
+    border: solid 2px ($primaryColor2);
+    &:hover {
+      opacity: 0.7;
+      border-color: $primaryColor3;
+      @include easeOut;
+
+      box-shadow: 0 5px 5px white;
+    }
+    box-shadow: 0 1px 2px white;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+}
+// contact page with flex-box
+.boxes{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+margin-top:1rem;
+align-items: center;
+
+div{
+  border: solid white 3px;
+  font-size: 2rem;
+  
+  padding: 1.5rem 2.5rem;
+  margin-bottom:3rem ;
+  @include easeOut;
+
+  &:hover{
+    padding: 0.5rem 1.5rem;
+    background: $primaryColor3;
+    color: set-text-color($primaryColor3);
+    span{
+      color: set-text-color($primaryColor3);
+    }
+    }
+}
+
+}
+
+// button styles for contact page
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $primaryColor3;
+    color: set-text-color($primaryColor1);
+  }
+}
+
+.btn-light {
+  @extend .btn;
+  background: darken($primaryColor1, 50);
+  color: #fff;
+}
+.btn-dark {
+  @extend .btn;
+  background: lighten($primaryColor1, 50);
+  color: #333;
+}
+
+#main-footer {
+  text-align: center;
+  background: darken($primaryColor1, 12);
+  padding: 1rem;
+  color: set-text-color($primaryColor1);
+  height: 60px;
+}
+
+@import "mobile";

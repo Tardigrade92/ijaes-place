@@ -1,0 +1,82 @@
+$primaryColor1: #444; 
+$primaryColor2: rgba(255, 251, 251, 0.856);
+$primaryColor3: #eece1a;  
+
+$show-home-image: true;
+
+$home-image: url(img/images/background-coffee.jpg);
+$portrait: url(img/images/portrait.jpg);
+$portrait_small: url(img/images/portrait_small.jpg);
+$background-opacity: 0.9;
+
+@mixin easeOut {
+  transition: all 1s ease-out;
+}
+
+@mixin background {
+  @if $show-home-image {
+    &#bg-img {
+      background-attachment: fixed;
+      background: $home-image;
+      background-size: cover;
+
+      &:after {
+        //  <div class="overlay"></div> in the markup use this div under the body for normal css and use the style class overlay the background image as this is sass we can use the &after
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba($primaryColor1, $background-opacity);
+        z-index: -1;
+      }
+    }
+  }
+}
+// set textcolor with functions
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return black;
+  } @else {
+    @return white;
+  }
+}
+// set textcolor with functions
+@function set-text-color2($color) {
+  @if (lightness($color) > 40) {
+    @return $primaryColor3;
+  } @else {
+    @return white;
+  }
+}
+// media queries mixens
+@mixin mediaXsml {
+  @media screen and (max-width: 250px) {
+    @content;
+  }
+}
+
+@mixin mediaSml {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMdm {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLrg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    @content;
+  }
+}
+
+@mixin mediaXlrg {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}

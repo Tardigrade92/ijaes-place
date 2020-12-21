@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "or create a new repository on the command line\r echo \"# ijaesport\" >> README.md\r git init\r git add README.md\r git commit -m \"first commit\"\r git branch -M master\r git remote add origin https://github.com/Tardigrade92/ijaesport.git\r git push -u origin master",
   "main": "index.js",
-  "homepage": "https://Tardigrade92/github/io/ijaesport",
+  "homepage": "https://Tardigrade92/github/io/ijaes-kplace",
   "scripts": {
     "sass": "node-sass -w scss/ -o dist/css/ --recursive",
     "deploy": "gh-pages -d dist"

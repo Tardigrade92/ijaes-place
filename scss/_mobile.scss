@@ -1,0 +1,97 @@
+// widecreens
+@include mediaXlrg {
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+// desktop
+@include mediaLrg {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// tablet 
+@include mediaMdm {
+  main {
+    align-items: center;
+    text-align: center;
+
+    .lg-heading {
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+  }
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-width: 0;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px;
+  }
+
+  .menu-branding {
+    //   note its 15vh here because the remaider 75vh is use in .meun-nav above
+    height: 25vh;
+    transform: translate3d(100%, 0, 0);
+
+    .portrait {
+      background: $portrait_small;
+      width: 150px;
+      height: 150px;
+      //   the height in normal image is set to 250px
+      //   can always directly inser with url by: background:("../img/images/nameOfImage");
+    }
+  }
+  .about-info {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "bio-image"
+      "bio"
+      "job-1"
+      "job-2"
+      "job-3";
+  }
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// mobile
+@include mediaSml {
+  main#home h1 {
+    margin-top: 10vh;
+  }
+  .projects {
+    grid-template-columns: 1fr;
+  
+  }
+}
+// mobileXsml
+@include mediaXsml {
+  main#home h1{
+    margin-top: 10vh;
+    
+  }
+  main#work h1{
+    margin-top: 10vh;
+    font-size: 22px; 
+ 
+    .projects {
+      grid-template-columns: 1fr;
+  
+    }
+  }
+  .projects {
+    grid-template-columns: 1fr;
+
+  }
+}

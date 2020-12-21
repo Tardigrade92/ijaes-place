@@ -1,0 +1,161 @@
+// menu burger button
+
+.menu-btn {
+  position: absolute;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  @include easeOut;
+
+  .btn-line {
+    width: 28px;
+    height: 3px;
+    margin: 0 0 5px 0;
+    background: set-text-color($primaryColor1);
+    @include easeOut;
+  }
+  // rotate into x with burger menu lines using the classes in main.js
+  &.close {
+    transform: rotate(180deg);
+
+    .btn-line {
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+        background: red;
+        &:hover {
+          background: set-text-color($primaryColor1);
+        }
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(6.5px, -6.5px);
+        background: red;
+        &:hover {
+          background: set-text-color($primaryColor1);
+        }
+      }
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.9;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+  // menubranding and menu-nav positioning controls
+  &-branding,
+  &-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    float: left;
+    height: 100vh;
+    width: 50%;
+    overflow: hidden;
+
+    /*align-content: center; will put the element into the centerat its relitive position but
+ wont center it to the middle justfiy content will center it to the direct center like A bulls eye */
+  }
+  // menu-nav controls
+  &-nav {
+    margin: 0;
+    padding: 0;
+    background: darken($primaryColor1, 7);
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+
+    &.show {
+      transform: translate3d(0, 0%, 0);
+    }
+
+    // list style will remve the style from the li;
+  }
+  // menu-branding controls
+  &-branding {
+    background: $primaryColor1;
+
+    transform: translate3d(0, 100%, 0);
+    @include easeOut;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+    // this is the main portrait image contols
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: $portrait;
+      border-radius: 50%;
+      border: solid $primaryColor3 5px;
+    }
+  }
+  // nav items decoration conrols
+
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    //  so above we move this E of the screen 600px to start with
+    @include easeOut;
+    &.show {
+      //  slide in from right
+      transform: translate3d(0, 0, 0);
+    }
+    // this is the current class added in
+    &.current > a {
+      color: $primaryColor3;
+    }
+  }
+  .nav-links {
+    display: inline-block;
+    position: relative;
+    font-size: 30px;
+    color: set-text-color($primaryColor1);
+    text-shadow: 1px 1px 1px black;
+    font-weight: 450;
+
+    padding: 0.5rem;
+    text-decoration: none;
+    @include easeOut;
+
+    &:nth-child(1) {
+      color: set-text-color($primaryColor1);
+
+      &:first-letter {
+        text-transform: uppercase;
+        color: set-text-color2($primaryColor3);
+      }
+      &:hover {
+        color: $primaryColor3;
+      }
+    }
+    // position relitive because they need to be able to move
+  }
+}
+
+//delay nav-item slide by 0.1s using a for loop, js exuivelent would be this    for (let x = 0; i < 4;i++)  this is sass @for $x from 1 through 4{
+// the one through 4 is the number of anchors x is the var name , .nav-item:nth-child(#{$x} i explain this so nth child is the children in this cse its x as in all four anchors then the # is to declare that they are numbers and along with the var x then you use the css transition delay and cALL THE FUNCTION X using the sass $ var sign call key the special affects are written above in the transform: translate3d css styling
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
+
+// menu overlay
+/* this is how you do the git commit
+if needed run git init first but thats only to re activate git 
+git add .
+git commit -m "then write a string in here of what was achevied " 
+
+
+ctr c closes NPM
+*/
